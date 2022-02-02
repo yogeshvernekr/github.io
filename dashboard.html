@@ -1,24 +1,3 @@
-<?php
-
-include("connection.php");
-session_start();
-if(isset($_POST['foodtype']) && isset($_POST['location']))
-{
-    $foodtype = $_POST["foodtype"];
-    $location = $_POST["location"];
-    
-    $sql = "INSERT INTO food (foodtype, location) VALUES ( '$foodtype', '$location')";   // Use you own column name from login table
-    if (!mysqli_query($con, $sql)) {
-        echo "Error: " . mysqli_error($con);
-    }
-    
-}
-
-$query="select * from food"; 
-$result=mysqli_query($con,$query); 
-
-
-      ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -69,24 +48,6 @@ $result=mysqli_query($con,$query);
 
 
     <div id="box1" class="container-1">
-        <?php while($rows=mysqli_fetch_assoc($result)){?>
-        <div class="courses-container">
-            <div class="course">
-                <div class="course-preview">
-                    <img src="img/map.jpg" height="200" width="200">
-                </div>
-                <div class="course-info">
-                    <h6><?php echo $rows['location']; ?></h6>
-                    <h2><?php echo $rows['foodtype']; ?></h2>
-                    <button type="button" class="btn">More Info</button>
-                    <!-- Modal -->
-
-
-                </div>
-
-            </div>
-            <?php } ?>
-        </div>
     </div>
 
 
